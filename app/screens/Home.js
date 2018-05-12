@@ -43,8 +43,8 @@ class Home extends Component {
         <Header
           onPress={this.handleOptionsPress}
         />
-        <Logo />
         <KeyboardAvoidingView behavior="padding">
+          <Logo />
           <InputWithButton
             buttonText={TEMP_BASE_CURRENCY}
             onPress={this.handlePressBaseCurrency}
