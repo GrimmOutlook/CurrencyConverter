@@ -1,8 +1,8 @@
 import EStyleSheet from 'react-native-extended-stylesheet';
-import StyleSheet from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = EStyleSheet.create({
-  $underlayColor = '$border',
+  $underlayColor: '$border',
   row: {
     paddingHorizontal: 20,
     paddingVertical: 16,
