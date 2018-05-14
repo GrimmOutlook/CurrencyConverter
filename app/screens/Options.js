@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { ScrollView, StatusBar, Platform } from 'react-native';
+import { ScrollView, StatusBar, Platform, Linking } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+import { connectAlert } from '../components/Alert';
 import { ListItem, Separator } from '../components/List';
 
 const ICON_PREFIX = Platform.OS === 'ios' ? 'ios' : 'nd';
@@ -12,6 +13,7 @@ const ICON_SIZE = 23;
 class Options extends Component {
   static propTypes = {
     navigation: PropTypes.object,
+    alertWithType: PropTypes.func,
   };
 
   handleThemePress = () => {
@@ -21,6 +23,7 @@ class Options extends Component {
 
   handleSitePress = () => {
     console.log('press Site');
+    Linking.openURL('https://fixer.io/').catch(() => this.props.alertWithType('Error', 'You done messed up now!', 'Fixer.io link is broken'));
   };
 
   render() {
@@ -46,4 +49,4 @@ class Options extends Component {
   }
 }
 
-export default Options;
+export default connectAlert(Options);
