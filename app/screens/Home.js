@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { StatusBar, KeyboardAvoidingView } from 'react-native';
 
 import { Container } from '../components/Container/index';
@@ -16,12 +17,17 @@ const TEMP_CONVERSION_RATE = 0.7974;
 const TEMP_CONVERSION_DATE = new Date();
 
 class Home extends Component {
+  static propTypes = {
+    navigation: PropTypes.object,
+  };
   handlePressBaseCurrency = () => {
     console.log('press base currency');
+    this.props.navigation.navigate('CurrencyList', { title: 'Base Currency' });
   };
 
   handlePressQuoteCurrency = () => {
     console.log('press quote currency');
+    this.props.navigation.navigate('CurrencyList', { title: 'Quote Currency' });
   };
 
   handleChangeText = (text) => {
@@ -30,19 +36,18 @@ class Home extends Component {
 
   handleSwapCurrency = () => {
     console.log('press swap currency');
-  }
+  };
 
   handleOptionsPress = () => {
     console.log('press gear icon');
-  }
+    this.props.navigation.navigate('Options', { title: 'Options' });
+  };
 
   render() {
     return (
       <Container>
         <StatusBar translucent={false} barStyle="light-content" />
-        <Header
-          onPress={this.handleOptionsPress}
-        />
+        <Header onPress={this.handleOptionsPress} />
         <KeyboardAvoidingView behavior="padding">
           <Logo />
           <InputWithButton
@@ -64,10 +69,7 @@ class Home extends Component {
             date={TEMP_CONVERSION_DATE}
             conversionRate={TEMP_CONVERSION_RATE}
           />
-          <ClearButton
-            text="Reverse Currencies"
-            onPress={this.handleSwapCurrency}
-          />
+          <ClearButton text="Reverse Currencies" onPress={this.handleSwapCurrency} />
         </KeyboardAvoidingView>
       </Container>
     );

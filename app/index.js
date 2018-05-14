@@ -4,7 +4,8 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 // import Home from './screens/Home';
 // import Options from './screens/Options';
 // import CurrencyList from './screens/CurrencyList';
-import Themes from './screens/Themes';
+// import Themes from './screens/Themes';
+import Navigator from './config/routes';
 
 EStyleSheet.build({
   $primaryBlue: '#4F6D7A',
@@ -18,7 +19,8 @@ EStyleSheet.build({
   $darkText: '#343434',
 });
 
-export default () => <Themes />;
+export default () => <Navigator />;
+// export default () => <Themes />;
 // export default () => <CurrencyList />;
 // export default () => <Options />;
 // export default () => <Home />;
