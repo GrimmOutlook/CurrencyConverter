@@ -13,6 +13,8 @@ class CurrencyList extends Component {
   static propTypes = {
     navigation: PropTypes.object,
     dispatch: PropTypes.func,
+    // baseCurrency: PropTypes.string,
+    // quoteCurrency: PropTypes.string,
   };
 
   handlePress = (currency) => {
@@ -46,5 +48,10 @@ class CurrencyList extends Component {
     );
   }
 }
+
+// const mapStateToProps = state => ({
+//   baseCurrency: state.currencies.baseCurrency,
+//   quoteCurrency: state.currencies.quoteCurrency,
+// });
 
 export default connect()(CurrencyList);
