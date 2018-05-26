@@ -1,7 +1,7 @@
 import { CHANGE_PRIMARY_COLOR } from '../actions/themes';
 
 const initialState = {
-  primaryColor: '$primary-blue',
+  primaryColor: '#4F6D7A',
 };
 
 export default (state = initialState, action) => {

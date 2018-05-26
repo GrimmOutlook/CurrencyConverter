@@ -10,7 +10,7 @@ import { InputWithButton } from '../components/TextInput';
 import { LastConverted } from '../components/Text';
 import { ClearButton } from '../components/Buttons';
 
-import { swapCurrency, changeCurrencyAmount } from '../actions/currencies';
+import { swapCurrency, changeCurrencyAmount, getInitialConversion } from '../actions/currencies';
 
 // const TEMP_BASE_CURRENCY = 'USD';
 // const TEMP_QUOTE_CURRENCY = 'GBP';
@@ -31,6 +31,10 @@ class Home extends Component {
     isFetching: PropTypes.bool,
     primaryColor: PropTypes.string,
   };
+
+  componentWillMount() {
+    this.props.dispatch(getInitialConversion());
+  }
 
   handlePressBaseCurrency = () => {
     console.log('press base currency');
